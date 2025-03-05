@@ -3,6 +3,7 @@ package com.example.fisherman
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.example.fisherman.ui.app.FishermanApp
 import com.example.fisherman.ui.theme.FishermanTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -12,7 +13,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             FishermanTheme {
-
+                FishermanApp()
             }
         }
     }
