@@ -4,6 +4,6 @@ import com.example.domain.model.News
 import com.example.domain.model.NewsDetails
 
 interface NewsRepository {
-    suspend fun getNews(offset: Int?, limit: Int?): List<News>
-    suspend fun getNewsDetails(id: String): NewsDetails
+    suspend fun getNews(offset: Int?, limit: Int?): Result<List<News>>
+    suspend fun getNewsDetails(id: String): Result<NewsDetails>
 }
