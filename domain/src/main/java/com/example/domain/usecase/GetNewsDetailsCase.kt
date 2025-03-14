@@ -4,5 +4,5 @@ import com.example.domain.model.NewsDetails
 import com.example.domain.repository.NewsRepository
 
 class GetNewsDetailsCase(private val newsRepository: NewsRepository) {
-    suspend fun execute(id: String): Result<NewsDetails> = newsRepository.getNewsDetails(id)
+    suspend operator fun invoke(id: String): Result<NewsDetails> = newsRepository.getNewsDetails(id)
 }

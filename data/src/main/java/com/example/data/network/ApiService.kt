@@ -4,6 +4,7 @@ import com.example.domain.model.News
 import com.example.domain.model.NewsDetails
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -14,9 +15,9 @@ interface ApiService {
         @Query("limit") limit: Int?
     ): Response<List<News>>
 
-    @GET("news_details")
+    @GET("/api/news/{news_id}")
     suspend fun getNewsDetails(
-        @Query("news_id") newsId: String
+        @Path("news_id") newsId: String
     ): Response<NewsDetails>
 
 }
