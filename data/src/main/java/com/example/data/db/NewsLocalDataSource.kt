@@ -1,25 +1,35 @@
 package com.example.data.db
 
+import com.example.data.mapper.toNews
+import com.example.data.mapper.toNewsEntity
 import com.example.domain.model.News
-import com.example.domain.model.NewsDetails
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 
 class NewsLocalDataSource(
-    //private val newsDao: NewsDao
+    private val newsDao: NewsDao
 ) {
 
     suspend fun getNews(): List<News> {
-        TODO("Provide the return value")
+        return newsDao.getNews().map { newsEntityList ->
+            newsEntityList.map { newsEntity -> newsEntity.toNews() }
+        }.first()
     }
 
-    suspend fun getNewsDetails(id: Int): NewsDetails {
-        TODO("Provide the return value")
+    fun getNewsById(id: Int) : News {
+        val news = newsDao.getNewsById(id)
+        return news.toNews()
     }
 
-    suspend fun saveNews(news: List<News>) {
-        TODO("Provide the return value")
+    fun saveNews(news: List<News>) {
+        newsDao.insertNews(news.map { it.toNewsEntity() })
     }
 
-    suspend fun saveNewsDetails(newsDetails: NewsDetails) {
-        TODO("Provide the return value")
+    fun deleteNews(news: News){
+        newsDao.delete(news.toNewsEntity())
+    }
+
+    suspend fun deleteAllNews(){
+        newsDao.deleteAllNews()
     }
 }
