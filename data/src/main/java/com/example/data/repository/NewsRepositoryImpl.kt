@@ -21,11 +21,11 @@ class NewsRepositoryImpl(
                 withContext(Dispatchers.IO) {
                     localDataSource.deleteAndSaveNews(remoteNewsList) // Вносим данные в БД
                 }
-                remoteNewsList as Result<List<News>> //Cast will always fail
+                Result.success(remoteNewsList)
             },
             onFailure = {
                 val localNews = localDataSource.getNews()
-                localNews as Result<List<News>> // Cast will always fail
+                Result.success(localNews)
             }
         )
     } /* TODO return Result<List<News>> */
