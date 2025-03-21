@@ -43,7 +43,6 @@ android {
 }
 
 dependencies {
-
     implementation(project(":domain"))
     implementation(project(":data"))
 
@@ -56,6 +55,7 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.coil.compose)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.room.ktx)
     ksp(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.material.icons.extended)
