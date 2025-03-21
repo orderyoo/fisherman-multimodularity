@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">fisherman</string>
+    <string name="app_name">Dap Drift</string>
+
+    <string name="auth_title">Войдите в Dap Drift</string>
+    <string name="auth_dd">и пользуйтесь всеми функциями приложения</string>
+    <string name="login">Войти</string>
 </resources>
