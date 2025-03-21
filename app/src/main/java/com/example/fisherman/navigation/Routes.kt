@@ -8,4 +8,8 @@ open class Routes(val route: String){
     data object TrackScreen: Routes("track")
     data object AdditionalOptionsScreen: Routes("additional_options")
 
+    data object AllNews: Routes("all_news")
+    data object NewsDetails: Routes("news_details")
+
+    data object About: Routes("about")
 }
