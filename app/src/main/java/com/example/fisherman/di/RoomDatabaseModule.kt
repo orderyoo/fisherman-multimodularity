@@ -31,20 +31,4 @@ class RoomDatabaseModule{
         NewsRoomDatabase::class.java,
         "local-news"
     ).build()
-
-    @Module
-    @InstallIn(SingletonComponent::class)
-    abstract class LocalSourceModuleBinder{
-
-        /*
-        @Binds
-        abstract fun bindRoomLocalDataSource(
-            roomLocalDataSource: NewsLocalDataSource
-        ) : LocalDataSource*/
-
-        @Binds
-        abstract fun bindDefaultJustNotesRepository(
-            defaultJustNotesRepository: NewsRepositoryImpl
-        ) : NewsRepository
-    }
 }

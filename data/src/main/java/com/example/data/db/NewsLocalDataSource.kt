@@ -1,7 +1,5 @@
 package com.example.data.db
 
-import com.example.data.mapper.toNews
-import com.example.data.mapper.toNewsEntity
 import com.example.domain.model.News
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map

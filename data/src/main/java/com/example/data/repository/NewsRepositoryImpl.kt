@@ -20,25 +20,4 @@ class NewsRepositoryImpl(
         val remoteDataSource = remoteDataSource.getNewsDetails(id)
         return remoteDataSource
     }
-
-    override suspend fun getLocalNews(): List<News> {
-        return localDataSource.getNews()
-    }
-
-    override fun getNewsById(id: Int): News {
-        return localDataSource.getNewsById(id)
-    }
-
-    override fun saveNews(news: List<News>) {
-        localDataSource.saveNews(news)
-    }
-
-    override fun deleteNews(news: News) {
-        localDataSource.deleteNews(news)
-    }
-
-    override suspend fun deleteAllNews() {
-        localDataSource.deleteAllNews()
-    }
-
 }

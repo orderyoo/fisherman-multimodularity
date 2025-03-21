@@ -1,4 +1,4 @@
-package com.example.data.mapper
+package com.example.data.db
 
 import com.example.data.db.entities.NewsEntity
 import com.example.domain.model.News

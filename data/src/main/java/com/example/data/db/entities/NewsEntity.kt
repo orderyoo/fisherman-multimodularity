@@ -6,7 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class NewsEntity(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
+    @ColumnInfo
     val id: String,
     @ColumnInfo
     val publicationDate: String, // в формате "Y.m.d"
