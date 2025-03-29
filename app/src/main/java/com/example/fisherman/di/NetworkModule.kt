@@ -1,6 +1,7 @@
 package com.example.fisherman.di
 
 import com.example.data.network.ApiService
+import com.example.data.network.NewsRemoteDataSource
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -32,4 +33,11 @@ object NetworkModule {
     fun provideApiService(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideNewsRemoteDataSource(apiService: ApiService): NewsRemoteDataSource {
+        return NewsRemoteDataSource(apiService)
+    }
+
 }

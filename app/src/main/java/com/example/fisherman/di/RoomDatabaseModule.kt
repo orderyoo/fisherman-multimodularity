@@ -2,11 +2,9 @@ package com.example.fisherman.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.data.db.NewsDao
 import com.example.data.db.NewsLocalDataSource
 import com.example.data.db.NewsRoomDatabase
-import com.example.data.repository.NewsRepositoryImpl
-import com.example.domain.repository.NewsRepository
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,13 +12,9 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-
 @Module
 @InstallIn(SingletonComponent::class)
-class RoomDatabaseModule{
-
-    @Provides
-    fun provideNewsDao(database: NewsRoomDatabase) = database.newsDAO()
+class RoomDatabaseModule {
 
     @Provides
     @Singleton
@@ -31,4 +25,14 @@ class RoomDatabaseModule{
         NewsRoomDatabase::class.java,
         "local-news"
     ).build()
+
+    @Provides
+    fun provideNewsDao(database: NewsRoomDatabase) = database.newsDAO()
+
+    @Provides
+    @Singleton
+    fun provideNewsLocalDataSource(newsDao: NewsDao): NewsLocalDataSource {
+        return NewsLocalDataSource(newsDao)
+    }
+
 }

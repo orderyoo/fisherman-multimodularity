@@ -1,23 +1,28 @@
 package com.example.data.network
 
-import org.json.JSONObject
 import retrofit2.Response
+import retrofit2.HttpException
+import java.io.IOException
 
-private const val RESPONSE_MESSAGE = "message"
+class NetworkException(val code: Int, override val message: String?): Exception(message)
 
 suspend fun <T : Any> safeApiCall(call: suspend () -> Response<T>): Result<T> {
-    return runCatching {
-        val response = call.invoke()
+    return try {
+        val response = call()
 
         if (response.isSuccessful) {
-            response.body() ?: throw IllegalStateException("Response body is null")
+            response.body()?.let { body ->
+                Result.success(body)
+            } ?: Result.failure(NullPointerException("Response body is null"))
         } else {
-            val errorMessage = response.errorBody()?.string()?.let { errorBody ->
-                runCatching {
-                    JSONObject(errorBody).getString(RESPONSE_MESSAGE)
-                }.getOrNull() ?: "Unknown error"
-            }
-            throw HttpException(response.code(), errorMessage)
+            val errorMsg = response.errorBody()?.string() ?: "Unknown error"
+            Result.failure(NetworkException(response.code(), errorMsg))
         }
+    } catch (e: IOException) {
+        Result.failure(IOException("Network error: ${e.message}", e))
+    } catch (e: HttpException) {
+        Result.failure(e)
+    } catch (e: Exception) {
+        Result.failure(IllegalStateException("Unexpected error", e))
     }
 }
