@@ -59,7 +59,7 @@ fun NewsElement(
                         .size(80.dp)
                         .clip(RoundedCornerShape(10.dp)),
                     contentScale = ContentScale.Crop,
-                    placeholder = painterResource(R.drawable.ic_app),
+                    placeholder = painterResource(R.drawable.ic_app_logo),
                     error = painterResource(R.drawable.ic_appbar_map)
                 )
             }

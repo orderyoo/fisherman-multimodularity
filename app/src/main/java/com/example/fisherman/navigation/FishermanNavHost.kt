@@ -7,6 +7,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.fisherman.ui.screens.about.AboutScreen
 import com.example.fisherman.ui.screens.additionaloptions.AdditionalOptionsScreen
 import com.example.fisherman.ui.screens.allnews.AllNewsScreen
 import com.example.fisherman.ui.screens.newsdetails.NewsDetailScreen
@@ -41,6 +42,13 @@ fun FishermanNavHost(
             NewsDetailScreen(
                 newsId = backStackEntry.arguments?.getString("newsId")!!,
                 onBackClick = { navController.popBackStack() },
+            )
+        }
+
+        composable(Routes.About.route) {
+            val navigationActions = remember { NavigationActions(navController) }
+            AboutScreen(
+                onBackClick = navigationActions::navigateBack
             )
         }
     }

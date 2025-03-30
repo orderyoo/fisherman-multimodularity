@@ -89,17 +89,17 @@ fun AuthBlock(
                         ) {
                             Text(
                                 text = stringResource(R.string.auth_block_button_log_out),
-                                style = MaterialTheme.typography.titleSmall,
+                                style = MaterialTheme.typography.headlineMedium,
                                 color = MaterialTheme.textColors.primaryText
                             )
                         }
                         TextButton(
                             onClick = onDeleteAccountClick,
-                            shape = MaterialTheme.shapes.large
+                            shape = MaterialTheme.shapes.small
                         ) {
                             Text(
                                 text = stringResource(R.string.auth_block_button_delete_profile),
-                                style = MaterialTheme.typography.titleSmall,
+                                style = MaterialTheme.typography.headlineMedium,
                                 color = MaterialTheme.colorScheme.error
                             )
                         }

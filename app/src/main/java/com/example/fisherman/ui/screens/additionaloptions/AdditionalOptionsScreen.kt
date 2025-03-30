@@ -63,7 +63,7 @@ fun AdditionalOptionsScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Image(
-                    painter = painterResource(R.drawable.ic_app),
+                    painter = painterResource(R.drawable.ic_app_logo),
                     contentDescription = "Логотип",
                     modifier = Modifier.size(48.dp)
                 )
@@ -121,7 +121,7 @@ fun AdditionalOptionsScreen(
         item {
             InfoBlock(
                 onClickReference = { },
-                onClickAbout = { }
+                onClickAbout = { navController.navigate(Routes.About.route) }
             )
         }
 
