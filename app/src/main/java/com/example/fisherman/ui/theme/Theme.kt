@@ -9,10 +9,16 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
+
+data class AppTextColors(
+    val primaryText: Color,
+    val secondaryText: Color
+)
 
 private val DarkColorScheme = darkColorScheme(
     primary = Color(0xFF1B7EB7),
@@ -35,6 +41,11 @@ private val DarkColorScheme = darkColorScheme(
     onSurface = Color(0xFF929292),
     surfaceVariant = Color(0xFF4B4B4B),
     outline = Color(0xFF2A2A2A),
+)
+
+private val DarkTextColors = AppTextColors(
+    primaryText = Color(0xFFE0E0E0),
+    secondaryText = Color(0xFF929292)
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -60,6 +71,13 @@ private val LightColorScheme = lightColorScheme(
     outline = Color(0xFF5C5C5C),
 )
 
+private val LightTextColors = AppTextColors(
+    primaryText = Color(0xFF212529),
+    secondaryText = Color(0xFF767676)
+)
+
+val LocalAppTextColors = staticCompositionLocalOf { LightTextColors }
+
 @Composable
 fun DapDriftTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -78,14 +96,10 @@ fun DapDriftTheme(
         else -> LightColorScheme
     }
 
-    val density = LocalDensity.current.density
-    val fontScale = if (disableScaling) 1f else LocalDensity.current.fontScale
+    val textColors = if (darkTheme) DarkTextColors else LightTextColors
 
     CompositionLocalProvider(
-        LocalDensity provides Density(
-            density = density,
-            fontScale = fontScale
-        )
+        LocalAppTextColors provides textColors
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
@@ -95,3 +109,7 @@ fun DapDriftTheme(
         )
     }
 }
+
+val MaterialTheme.textColors: AppTextColors
+    @Composable
+    get() = LocalAppTextColors.current

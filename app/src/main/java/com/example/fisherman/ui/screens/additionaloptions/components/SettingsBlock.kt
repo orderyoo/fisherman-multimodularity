@@ -9,6 +9,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -17,6 +21,8 @@ import androidx.compose.ui.unit.dp
 fun SettingsBlock(
 
 ) {
+    var check by remember { mutableStateOf(false) }
+
     Column {
         Text(
             text = "Настройки",
@@ -34,8 +40,8 @@ fun SettingsBlock(
                 modifier = Modifier.weight(1f)
             )
             Switch(
-                checked = false,
-                onCheckedChange = {}
+                checked = check,
+                onCheckedChange = { check = !check}
             )
         }
 
@@ -47,23 +53,6 @@ fun SettingsBlock(
         ) {
             Text(
                 text = "Тип компаса",
-                style = MaterialTheme.typography.headlineSmall,
-                modifier = Modifier.weight(1f)
-            )
-            Switch(
-                checked = false,
-                onCheckedChange = {}
-            )
-        }
-
-        HorizontalDivider(thickness = 2.dp)
-        Spacer(modifier = Modifier.padding(16.dp))
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = "Тема",
                 style = MaterialTheme.typography.headlineSmall,
                 modifier = Modifier.weight(1f)
             )
