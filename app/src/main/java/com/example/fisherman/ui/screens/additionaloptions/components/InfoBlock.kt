@@ -16,9 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.fisherman.R
+import com.example.fisherman.ui.theme.textColors
 
 @Composable
-fun AboutBlock(
+fun InfoBlock(
     onClickReference: () -> Unit,
     onClickAbout: () -> Unit
 ) {
@@ -26,7 +27,8 @@ fun AboutBlock(
 
         Text(
             text = "Информация",
-            style = MaterialTheme.typography.headlineLarge
+            style = MaterialTheme.typography.headlineLarge,
+            color = MaterialTheme.textColors.primaryText
         )
 
         Spacer(modifier = Modifier.padding(16.dp))
@@ -38,8 +40,9 @@ fun AboutBlock(
             Text(
                 text = "Справка",
                 style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.textColors.primaryText,
                 modifier = Modifier
-                    .padding(8.dp)
+                    .padding(vertical = 8.dp)
                     .weight(1f)
             )
             Icon(
@@ -54,10 +57,11 @@ fun AboutBlock(
         Text(
             text = "О приложении",
             style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.textColors.primaryText,
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable { onClickAbout() }
-                .padding(8.dp)
+                .padding(vertical = 8.dp)
         )
     }
 }

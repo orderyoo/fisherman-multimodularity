@@ -1,7 +1,16 @@
 <resources>
-    <string name="app_name">Dap Drift</string>
+    <string name="app_name" translatable="false">Dap Drift</string>
 
-    <string name="auth_title">Войдите в Dap Drift</string>
-    <string name="auth_dd">и пользуйтесь всеми функциями приложения</string>
-    <string name="login">Войти</string>
+    <string name="auth_block_title_no_auth">Enter Dap Drift!</string>
+    <string name="auth_block_subtext_no_auth">and use all the features of the application</string>
+    <string name="auth_block_button_log_in">Log in</string>
+
+    <string name="auth_block_advantage_1">all purchased depth maps are saved in your account forever</string>
+    <string name="auth_block_advantage_2">purchased maps can be downloaded on different devices with one account</string>
+    <string name="auth_block_advantage_3">we will notify you when there is an update for your maps.</string>
+
+    <string name="auth_block_title_with_auth">You are logged in as</string>
+    <string name="auth_block_button_log_out">Log out from profile</string>
+    <string name="auth_block_button_delete_profile">Delete profile</string>
+
 </resources>

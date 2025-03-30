@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dap Drift</string>
+    <string name="auth_block_title_no_auth">Войдите в Dap Drift!</string>
+    <string name="auth_block_subtext_no_auth">и используйте все возможности приложения</string>
+    <string name="auth_block_button_log_in">Войти</string>
+    <string name="auth_block_advantage_3">мы сообщим когда появится обновление для ваших карт</string>
+    <string name="auth_block_title_with_auth">Вы вошли как</string>
+    <string name="auth_block_button_log_out">Выйти из профиля</string>
+    <string name="auth_block_button_delete_profile">Удалить профиль</string>
+    <string name="auth_block_advantage_1">все приобретённые карты глубины сохраняются в вашем аккаунте навсегда</string>
+    <string name="auth_block_advantage_2">купленные карты можно скачивать на разных устройствах с одним аккаунтом</string>
+</resources>

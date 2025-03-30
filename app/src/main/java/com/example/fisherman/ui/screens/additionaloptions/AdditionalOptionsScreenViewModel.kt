@@ -3,6 +3,7 @@ package com.example.fisherman.ui.screens.additionaloptions
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.model.News
+import com.example.domain.model.NewsDetails
 import com.example.domain.usecase.GetOneLastNewsCase
 import dagger.Lazy
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,16 +18,25 @@ class AdditionalOptionsScreenViewModel @Inject constructor(
     private val provideGetOneLastNewsCase: Lazy<GetOneLastNewsCase>
 ): ViewModel() {
 
-    private val _lastNew = MutableStateFlow<List<News>>(emptyList())
-    val lastNew: StateFlow<List<News>> = _lastNew.asStateFlow()
+    sealed interface State {
+        data object Loading : State
+        data class Success(val news: List<News>) : State
+        data class Error(val message: String) : State
+    }
+
+    private val _state = MutableStateFlow<State>(State.Loading)
+    val state: StateFlow<State> = _state.asStateFlow()
+
+    init {
+        loadLastNew()
+    }
 
     fun loadLastNew() {
         viewModelScope.launch {
-            provideGetOneLastNewsCase.get()
-            provideGetOneLastNewsCase.get().invoke().onSuccess { new ->
-                _lastNew.value = new
-            }.onFailure {
-                TODO()
+            provideGetOneLastNewsCase.get().invoke().onSuccess { news ->
+                _state.value = State.Success(news)
+            }.onFailure { exception ->
+                _state.value = State.Error(exception.message ?: "Unknown error occurred")
             }
         }
     }
