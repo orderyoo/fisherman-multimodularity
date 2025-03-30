@@ -36,7 +36,7 @@ fun SettingsBlock(
         ) {
             Text(
                 text = "Не выключать экран",
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.weight(1f)
             )
             Switch(
@@ -53,7 +53,7 @@ fun SettingsBlock(
         ) {
             Text(
                 text = "Тип компаса",
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.weight(1f)
             )
             Switch(

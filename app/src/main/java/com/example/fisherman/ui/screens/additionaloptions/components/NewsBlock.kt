@@ -32,7 +32,7 @@ fun NewsBlock(
             ) {
                 Text(
                     text = "Все новости",
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.titleSmall,
                     color = Color.Blue
                 )
             }

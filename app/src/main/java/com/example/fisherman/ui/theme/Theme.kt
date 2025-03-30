@@ -12,8 +12,6 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.Density
 
 data class AppTextColors(
     val primaryText: Color,
@@ -82,7 +80,6 @@ val LocalAppTextColors = staticCompositionLocalOf { LightTextColors }
 fun DapDriftTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = false,
-    disableScaling: Boolean = true,
     content: @Composable () -> Unit
 ) {
 

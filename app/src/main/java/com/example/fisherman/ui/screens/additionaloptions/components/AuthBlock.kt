@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -16,7 +17,6 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -37,7 +37,8 @@ fun AuthBlock(
         Card(
             modifier = Modifier
                 .fillMaxWidth(),
-            shape = MaterialTheme.shapes.large
+            shape = MaterialTheme.shapes.large,
+            elevation = CardDefaults.elevatedCardElevation(defaultElevation = 5.dp)
         ) {
             Column(
                 modifier = Modifier
@@ -48,7 +49,7 @@ fun AuthBlock(
                 Text(
                     text = if (!isLoggedIn) stringResource(R.string.auth_block_title_no_auth )
                         else stringResource(R.string.auth_block_title_with_auth),
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.headlineMedium,
                     color = MaterialTheme.textColors.primaryText,
                     fontWeight = FontWeight.ExtraBold
                 )
@@ -56,7 +57,7 @@ fun AuthBlock(
                     text = if (!isLoggedIn) stringResource(R.string.auth_block_subtext_no_auth)
                         else "markovmaks895@gmail.com",
                     style = if(!isLoggedIn) MaterialTheme.typography.bodyMedium
-                        else MaterialTheme.typography.titleLarge,
+                        else MaterialTheme.typography.titleMedium,
                     color = if(!isLoggedIn) MaterialTheme.textColors.secondaryText
                         else MaterialTheme.textColors.primaryText
                 )
@@ -71,7 +72,7 @@ fun AuthBlock(
                         Text(
                             modifier = Modifier.padding(vertical = 8.dp),
                             text = stringResource(R.string.auth_block_button_log_in),
-                            style = MaterialTheme.typography.titleLarge,
+                            style = MaterialTheme.typography.headlineMedium,
                             color = MaterialTheme.textColors.primaryText,
                             fontWeight = FontWeight.ExtraBold
                         )
@@ -88,6 +89,7 @@ fun AuthBlock(
                         ) {
                             Text(
                                 text = stringResource(R.string.auth_block_button_log_out),
+                                style = MaterialTheme.typography.titleSmall,
                                 color = MaterialTheme.textColors.primaryText
                             )
                         }
@@ -97,6 +99,7 @@ fun AuthBlock(
                         ) {
                             Text(
                                 text = stringResource(R.string.auth_block_button_delete_profile),
+                                style = MaterialTheme.typography.titleSmall,
                                 color = MaterialTheme.colorScheme.error
                             )
                         }
@@ -122,14 +125,16 @@ fun AuthBlock(
                         Icon(
                             painterResource(R.drawable.ic_check_mark),
                             contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary)
+                            tint = MaterialTheme.colorScheme.primary
+                        )
                     }
 
                     Spacer(Modifier.padding(8.dp))
 
                     Text(
                         text = text,
-                        style = MaterialTheme.typography.headlineSmall
+                        style = MaterialTheme.typography.headlineSmall,
+                        color = MaterialTheme.textColors.primaryText
                     )
                 }
                 if(index != 2) Spacer(Modifier.padding(8.dp))

@@ -39,7 +39,7 @@ fun InfoBlock(
         ) {
             Text(
                 text = "Справка",
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.textColors.primaryText,
                 modifier = Modifier
                     .padding(vertical = 8.dp)
@@ -56,7 +56,7 @@ fun InfoBlock(
 
         Text(
             text = "О приложении",
-            style = MaterialTheme.typography.headlineSmall,
+            style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.textColors.primaryText,
             modifier = Modifier
                 .fillMaxWidth()

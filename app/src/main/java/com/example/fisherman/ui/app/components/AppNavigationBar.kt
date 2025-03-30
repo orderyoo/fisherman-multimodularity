@@ -42,7 +42,12 @@ fun AppNavigationBar(
                         tint = if (isSelected) MaterialTheme.colorScheme.primary else Color.Gray
                     )
                 },
-                label = { Text(text = item.title, style = MaterialTheme.typography.titleMedium) },
+                label = {
+                    Text(
+                        text = item.title,
+                        style = MaterialTheme.typography.titleSmall,
+                        color = if (isSelected) MaterialTheme.colorScheme.primary else Color.Gray
+                    ) },
                 selected = isSelected,
                 onClick = { onTabSelected(item.route) },
                 modifier = Modifier.padding(vertical = 8.dp)
@@ -50,6 +55,7 @@ fun AppNavigationBar(
         }
     }
 }
+
 private data class AppNavigationBarElement(
     val title: String,
     val icon: Painter,

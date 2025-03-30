@@ -9,6 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import com.example.fisherman.ui.theme.textColors
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -24,7 +25,8 @@ fun NewsTopBar(
         title = {
             Text(
                 text = "Новости",
-                style = MaterialTheme.typography.headlineLarge
+                style = MaterialTheme.typography.headlineLarge,
+                color = MaterialTheme.textColors.primaryText
             )
         }
     )
