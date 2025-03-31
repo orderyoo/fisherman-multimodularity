@@ -1,6 +1,5 @@
 package com.example.data.db
 
-import android.widget.Toast
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -11,8 +10,6 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NewsDao {
-
-
     @Query("SELECT * FROM NewsEntity")
     fun getNews() : Flow<List<NewsEntity>>
     @Insert
