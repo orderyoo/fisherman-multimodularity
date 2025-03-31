@@ -1,14 +1,18 @@
 package com.example.data.db
 
+import android.widget.Toast
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Delete
+import androidx.room.Transaction
 import com.example.data.db.entities.NewsEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NewsDao {
+
+
     @Query("SELECT * FROM NewsEntity")
     fun getNews() : Flow<List<NewsEntity>>
     @Insert
@@ -20,4 +24,9 @@ interface NewsDao {
     @Query("DELETE FROM NewsEntity")
     suspend fun deleteAllNews()
 
+    @Transaction
+    suspend fun deleteAndSaveNews(news: List<NewsEntity>){
+        deleteAllNews()
+        insertNews(news)
+    }
 }

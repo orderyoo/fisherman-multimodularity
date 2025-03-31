@@ -6,6 +6,8 @@ import com.example.data.network.safeApiCall
 import com.example.domain.model.News
 import com.example.domain.model.NewsDetails
 import com.example.domain.repository.NewsRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class NewsRepositoryImpl(
     private val remoteDataSource: NewsRemoteDataSource,
@@ -14,11 +16,24 @@ class NewsRepositoryImpl(
 
     override suspend fun getNews(offset: Int?, limit: Int?): Result<List<News>> {
         val remoteNews = safeApiCall { remoteDataSource.getNews(offset, limit) }
-        return remoteNews
-    }
+        return remoteNews.fold(
+            onSuccess = { remoteNewsList: List<News> ->
+                withContext(Dispatchers.IO) {
+                    localDataSource.deleteAndSaveNews(remoteNewsList) // Вносим данные в БД
+                }
+                remoteNewsList as Result<List<News>> //Cast will always fail
+            },
+            onFailure = {
+                val localNews = localDataSource.getNews()
+                localNews as Result<List<News>> // Cast will always fail
+            }
+        )
+    } /* TODO return Result<List<News>> */
 
     override suspend fun getNewsDetails(id: String): Result<NewsDetails> {
         val remoteDataSource = safeApiCall { remoteDataSource.getNewsDetails(id) }
         return remoteDataSource
     }
+
+    /*TODO local data source*/
 }

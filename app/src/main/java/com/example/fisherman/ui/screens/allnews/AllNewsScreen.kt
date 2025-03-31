@@ -59,7 +59,7 @@ fun AllNewsScreen(
             }
             is AllNewsScreenViewModel.State.Error -> {
                 ErrorMessage(
-                    onRepit = { },
+                    onRepeat = { },
                     message = currentState.message,
                     modifier = Modifier.padding(innerPadding)
                 )
