@@ -2,6 +2,7 @@ package com.example.data.network
 
 import com.example.domain.model.News
 import com.example.domain.model.NewsDetails
+import com.example.domain.model.Region
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -19,5 +20,8 @@ interface ApiService {
     suspend fun getNewsDetails(
         @Path("news_id") newsId: String
     ): Response<NewsDetails>
+
+    @GET("/api/waters")
+    suspend fun getRegion(): Response<Region>
 
 }

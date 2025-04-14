@@ -1,7 +1,9 @@
 package com.example.fisherman.di
 
 import com.example.domain.repository.NewsRepository
+import com.example.domain.repository.RegionRepository
 import com.example.domain.usecase.GetAllNewsCase
+import com.example.domain.usecase.GetAllRegionsCase
 import com.example.domain.usecase.GetNewsDetailsCase
 import com.example.domain.usecase.GetOneLastNewsCase
 import dagger.Module
@@ -32,4 +34,9 @@ object UseCaseModule {
         return GetNewsDetailsCase(newsRepository)
     }
 
+    @Provides
+    @Singleton
+    fun provideGetAllRegionUseCase(repository: RegionRepository): GetAllRegionsCase {
+        return GetAllRegionsCase(repository)
+    }
 }

@@ -4,7 +4,7 @@ import com.example.domain.model.News
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
-class NewsLocalDataSource(
+class LocalDataSource(
     private val newsDao: NewsDao
 ) {
 

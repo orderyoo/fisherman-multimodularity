@@ -3,7 +3,7 @@ package com.example.fisherman.di
 import android.content.Context
 import androidx.room.Room
 import com.example.data.db.NewsDao
-import com.example.data.db.NewsLocalDataSource
+import com.example.data.db.LocalDataSource
 import com.example.data.db.NewsRoomDatabase
 import dagger.Module
 import dagger.Provides
@@ -31,8 +31,8 @@ class RoomDatabaseModule {
 
     @Provides
     @Singleton
-    fun provideNewsLocalDataSource(newsDao: NewsDao): NewsLocalDataSource {
-        return NewsLocalDataSource(newsDao)
+    fun provideNewsLocalDataSource(newsDao: NewsDao): LocalDataSource {
+        return LocalDataSource(newsDao)
     }
 
 }
