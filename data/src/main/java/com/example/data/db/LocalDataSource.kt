@@ -14,6 +14,11 @@ class LocalDataSource(
         }.first()
     }
 
+    suspend fun deleteAndSaveNews(news: List<News>){
+        val newsEntities = news.map { it.toNewsEntity() }
+        newsDao.deleteAndSaveNews(newsEntities)
+    }
+
     fun getNewsById(id: Int) : News {
         val news = newsDao.getNewsById(id)
         return news.toNews()

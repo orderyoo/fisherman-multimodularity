@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun ErrorMessage(
-    onRepit: () -> Unit,
+    onRepeat: () -> Unit,
     message: String,
     modifier: Modifier = Modifier
 ) {
@@ -25,7 +25,7 @@ fun ErrorMessage(
             Text(message)
             println(message)
             Button(
-                onClick = { onRepit }
+                onClick = { onRepeat }
             ) {
                 Text("Повторить")
             }
