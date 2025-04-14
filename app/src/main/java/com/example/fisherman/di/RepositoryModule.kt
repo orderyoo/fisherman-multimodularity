@@ -3,9 +3,9 @@ package com.example.fisherman.di
 import com.example.data.db.LocalDataSource
 import com.example.data.network.RemoteDataSource
 import com.example.data.repository.NewsRepositoryImpl
-import com.example.data.repository.RegionRepositoryImpl
+import com.example.data.repository.SchemesRepositoryImpl
 import com.example.domain.repository.NewsRepository
-import com.example.domain.repository.RegionRepository
+import com.example.domain.repository.SchemesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,8 +24,8 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideRegionRepository(remoteDataSource: RemoteDataSource): RegionRepository {
-        return RegionRepositoryImpl(remoteDataSource)
+    fun provideSchemeRepository(remoteDataSource: RemoteDataSource): SchemesRepository {
+        return SchemesRepositoryImpl(remoteDataSource)
     }
 
 }
