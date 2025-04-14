@@ -128,7 +128,7 @@ fun NewsDetailScreen(
             }
             is NewsDetailsScreenViewModel.State.Error -> {
                 ErrorMessage(
-                    onRepit = { viewModel.loadNewDetails(newsId) },
+                    onRepeat = { viewModel.loadNewDetails(newsId) },
                     message = currentState.message,
                     modifier = Modifier.padding(paddingValues)
                 )

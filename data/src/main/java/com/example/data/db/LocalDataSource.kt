@@ -4,7 +4,7 @@ import com.example.domain.model.News
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
-class NewsLocalDataSource(
+class LocalDataSource(
     private val newsDao: NewsDao
 ) {
 
@@ -12,6 +12,11 @@ class NewsLocalDataSource(
         return newsDao.getNews().map { newsEntityList ->
             newsEntityList.map { newsEntity -> newsEntity.toNews() }
         }.first()
+    }
+
+    suspend fun deleteAndSaveNews(news: List<News>){
+        val newsEntities = news.map { it.toNewsEntity() }
+        newsDao.deleteAndSaveNews(newsEntities)
     }
 
     fun getNewsById(id: Int) : News {
