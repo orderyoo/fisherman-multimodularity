@@ -25,14 +25,14 @@ interface ApiService {
     @GET("/api/water/{water_id}/schemes")
     suspend fun getAllSchemesByRegion(
         @Query("Authorization") token: String?
-    ): Response<Scheme>
+    ): Response<List<Scheme>>
 
     @GET("api/schemes/search")
     suspend fun getSchemeByName(
         @Query("name") name: String
-    ): Response<Scheme>
+    ): Response<List<Scheme>>
 
     @GET("/api/waters")
-    suspend fun getRegion(): Response<Region>
+    suspend fun getRegion(): Response<List<Region>>
 
 }
