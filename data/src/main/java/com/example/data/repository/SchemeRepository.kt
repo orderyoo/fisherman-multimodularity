@@ -7,15 +7,15 @@ import com.example.domain.model.Scheme
 import com.example.domain.repository.SchemesRepository
 
 class SchemesRepositoryImpl(private val remoteDataSource: RemoteDataSource): SchemesRepository {
-    override suspend fun getSchemeByName(name: String): Result<Scheme> {
+    override suspend fun getSchemeByName(name: String): Result<List<Scheme>> {
         return safeApiCall { remoteDataSource.getSchemeByName(name) }
     }
 
-    override suspend fun getAllSchemeByRegion(token: String?): Result<Scheme> {
+    override suspend fun getAllSchemeByRegion(token: String?): Result<List<Scheme>> {
         return safeApiCall { remoteDataSource.getAllSchemesByRegion(token) }
     }
 
-    override suspend fun getAllRegion(): Result<Region> {
+    override suspend fun getAllRegion(): Result<List<Region>> {
         return safeApiCall { remoteDataSource.getAllRegions() }
     }
 }
