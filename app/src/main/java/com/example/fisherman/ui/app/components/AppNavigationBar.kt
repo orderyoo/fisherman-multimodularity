@@ -1,10 +1,12 @@
 package com.example.fisherman.ui.app.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
@@ -50,7 +52,13 @@ fun AppNavigationBar(
                     ) },
                 selected = isSelected,
                 onClick = { onTabSelected(item.route) },
-                modifier = Modifier.padding(vertical = 8.dp)
+                colors = NavigationBarItemDefaults.colors(
+                    indicatorColor = Color.Transparent,
+                    selectedIconColor = MaterialTheme.colorScheme.primary,
+                    unselectedIconColor = Color.Gray,
+                    selectedTextColor = MaterialTheme.colorScheme.primary,
+                    unselectedTextColor = Color.Gray
+                )
             )
         }
     }

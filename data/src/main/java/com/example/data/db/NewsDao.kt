@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Delete
+import androidx.room.OnConflictStrategy
 import androidx.room.Transaction
 import com.example.data.db.entities.NewsEntity
 import kotlinx.coroutines.flow.Flow
@@ -12,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 interface NewsDao {
     @Query("SELECT * FROM NewsEntity")
     fun getNews() : Flow<List<NewsEntity>>
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertNews(news: List<NewsEntity>)
     @Query("SELECT * FROM NewsEntity WHERE id=:id")
     fun getNewsById(id: Int) : NewsEntity
