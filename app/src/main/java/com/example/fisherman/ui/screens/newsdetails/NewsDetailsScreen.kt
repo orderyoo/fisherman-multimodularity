@@ -33,7 +33,7 @@ import androidx.core.text.HtmlCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.example.fisherman.R
-import com.example.fisherman.ui.common.components.ErrorMessage
+import com.example.fisherman.ui.common.ErrorMessage
 import com.example.fisherman.ui.theme.textColors
 
 @OptIn(ExperimentalMaterial3Api::class)

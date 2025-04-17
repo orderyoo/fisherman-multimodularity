@@ -1,4 +1,4 @@
-package com.example.fisherman.ui.common.components
+package com.example.fisherman.ui.common
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

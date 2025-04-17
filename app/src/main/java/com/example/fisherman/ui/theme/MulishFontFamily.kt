@@ -6,7 +6,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import com.example.fisherman.R
 
-val MulishForntFamily = FontFamily(
+val MulishFontFamily = FontFamily(
     Font(R.font.mulish_regular, FontWeight.Normal),
     Font(R.font.mulish_bold, FontWeight.Bold),
     Font(R.font.mulish_italic, FontWeight.Normal, FontStyle.Italic)

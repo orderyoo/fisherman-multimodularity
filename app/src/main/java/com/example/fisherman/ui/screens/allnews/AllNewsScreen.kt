@@ -16,7 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.fisherman.ui.common.components.ErrorMessage
+import com.example.fisherman.ui.common.ErrorMessage
 import com.example.fisherman.ui.screens.allnews.components.NewsElement
 import com.example.fisherman.ui.screens.allnews.components.NewsTopBar
 
