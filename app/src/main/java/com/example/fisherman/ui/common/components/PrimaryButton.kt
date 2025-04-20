@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.fisherman.ui.theme.colorStyle
 
 @Preview
 @Composable
@@ -28,33 +29,33 @@ fun PrimaryButton(
 ) {
     val buttonColor = when (buttonType) {
         ButtonType.Primary -> ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            contentColor = MaterialTheme.colorScheme.onPrimary
+            containerColor = MaterialTheme.colorStyle.primary,
+            contentColor = MaterialTheme.colorStyle.onPrimary
         )
         ButtonType.PrimaryContainer -> ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+            containerColor = MaterialTheme.colorStyle.primaryContainer,
+            contentColor = MaterialTheme.colorStyle.onPrimaryContainer
         )
         ButtonType.Secondary -> ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.secondary,
-            contentColor = MaterialTheme.colorScheme.onSecondary
+            containerColor = MaterialTheme.colorStyle.secondary,
+            contentColor = MaterialTheme.colorStyle.onSecondary
         )
         ButtonType.Surface -> ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-            contentColor = MaterialTheme.colorScheme.onSurface
+            containerColor = MaterialTheme.colorStyle.surface,
+            contentColor = MaterialTheme.colorStyle.onSurface
         )
         ButtonType.Error -> ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.error,
-            contentColor = MaterialTheme.colorScheme.onError
+            containerColor = MaterialTheme.colorStyle.error,
+            contentColor = MaterialTheme.colorStyle.onError
         )
     }
 
     val textColor = when (buttonType) {
-        ButtonType.Primary -> MaterialTheme.colorScheme.onPrimary
-        ButtonType.PrimaryContainer -> MaterialTheme.colorScheme.onPrimaryContainer
-        ButtonType.Secondary -> MaterialTheme.colorScheme.onSecondary
-        ButtonType.Surface -> MaterialTheme.colorScheme.onSurface
-        ButtonType.Error -> MaterialTheme.colorScheme.onError
+        ButtonType.Primary -> MaterialTheme.colorStyle.onPrimary
+        ButtonType.PrimaryContainer -> MaterialTheme.colorStyle.onPrimaryContainer
+        ButtonType.Secondary -> MaterialTheme.colorStyle.onSecondary
+        ButtonType.Surface -> MaterialTheme.colorStyle.onSurface
+        ButtonType.Error -> MaterialTheme.colorStyle.onError
     }
 
     val buttonContent: @Composable RowScope.() -> Unit = {
