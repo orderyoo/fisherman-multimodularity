@@ -1,4 +1,4 @@
-package com.example.fisherman.ui.screens.mymaps
+package com.example.fisherman.ui.screens.allmaps
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,29 +12,31 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
 @HiltViewModel
-class MyMapViewModel @Inject constructor(
-    private val provideGetAllSchemesByRegion: Lazy<GetAllSchemesByRegionCase>
+class AllMapsScreenViewModel @Inject constructor(
+    private val provideGetAllSchemesByRegionCase: Lazy<GetAllSchemesByRegionCase>
 ): ViewModel(){
-    sealed interface State {
+
+    sealed interface State{
         data object Loading : State
-        data class Success(val schemes: List<Scheme>) : State
+        data class Success(val maps: List<Scheme>) : State
         data class Error(val message: String) : State
     }
 
     private val _state = MutableStateFlow<State>(State.Loading)
-    val state: StateFlow<State> = _state.asStateFlow()
+    val state : StateFlow<State> = _state.asStateFlow()
 
     init {
-        loadSchemas("1")
+        loadAllMaps()
     }
 
-    private fun loadSchemas(token: String){
+    private fun loadAllMaps(){
         viewModelScope.launch {
-            provideGetAllSchemesByRegion.get().invoke(token).onSuccess{ schemes ->
-                _state.value = State.Success(schemes)
-            }.onFailure{ exception ->
-                _state.value = State.Error(exception.message ?: "Unknown error occurred")
+            provideGetAllSchemesByRegionCase.get().invoke(token = null).onSuccess { maps ->
+                _state.value = State.Success(maps)
+            }.onFailure { exception ->
+                _state.value = State.Error(exception.message?: "Unknown error occurred")
             }
         }
     }

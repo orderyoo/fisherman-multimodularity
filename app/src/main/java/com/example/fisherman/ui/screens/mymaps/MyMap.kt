@@ -12,6 +12,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,8 +28,11 @@ import com.example.fisherman.ui.theme.textColors
 
 @Composable
 fun MyMapScreen(
-    //viewModel: MyMapViewModel
+    viewModel: MyMapViewModel
 ) {
+
+    val state by viewModel.state.collectAsState()
+
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -48,15 +53,22 @@ fun MyMapScreen(
                 modifier = Modifier.padding(start = 16.dp, top = 16.dp)
             )
         }
-/*
-        itemsIndexed(maps) { map ->
+
+        /*
+        itemsIndexed() { map ->
             MyMapsContent(map)
-        }
-*/
+        }*/
 
         item {
             MyMapsContent(Scheme(
-                "1", "Volga", "pr", Rating(), null, null, null, 1, true, true, true, null, 1, "", Prices(), "rus"
+                "1", "Volga", "pr", Rating(), null, null, null, 1, true,
+                purchased = true,
+                billingPurchased = true,
+                productId = null,
+                fileSize = 1,
+                fileVersion = "",
+                prices = Prices(),
+                waterName = "rus"
             ))}
         item {
             Text(
