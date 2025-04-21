@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Dap Drift</string>
 
+    <!-- Auth block -->
     <string name="auth_block_title_no_auth">Enter Dap Drift!</string>
     <string name="auth_block_subtext_no_auth">and use all the features of the application</string>
     <string name="auth_block_button_log_in">Log in</string>
@@ -13,4 +14,17 @@
     <string name="auth_block_button_log_out">Log out from profile</string>
     <string name="auth_block_button_delete_profile">Delete profile</string>
 
+    <!-- News block -->
+    <string name="news_block_title">News</string>
+    <string name="news_block_button_all_news">All news</string>
+
+    <!-- Settings block -->
+    <string name="settings_block_title">Settings</string>
+    <string name="settings_block_param_not_turn">Do not turn off the screen</string>
+    <string name="settings_block_param_compas_type">Compas type</string>
+
+    <!-- Info block -->
+    <string name="info_block_title">Information</string>
+    <string name="info_block_param_reference">Reference</string>
+    <string name="info_block_param_about">About</string>
 </resources>

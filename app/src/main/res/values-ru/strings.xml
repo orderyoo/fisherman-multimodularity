@@ -10,4 +10,12 @@
     <string name="auth_block_button_delete_profile">Удалить профиль</string>
     <string name="auth_block_advantage_1">все приобретённые карты глубины сохраняются в вашем аккаунте навсегда</string>
     <string name="auth_block_advantage_2">купленные карты можно скачивать на разных устройствах с одним аккаунтом</string>
+    <string name="news_block_title">Новости</string>
+    <string name="news_block_button_all_news">Все новости</string>
+    <string name="settings_block_title">Настройки</string>
+    <string name="settings_block_param_not_turn">Не выключайте экран</string>
+    <string name="settings_block_param_compas_type">Тип компаса</string>
+    <string name="info_block_title">Информация</string>
+    <string name="info_block_param_reference">Справка</string>
+    <string name="info_block_param_about">О приложении</string>
 </resources>
