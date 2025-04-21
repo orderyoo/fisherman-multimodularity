@@ -43,7 +43,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.domain.model.Scheme
 import com.example.fisherman.R
-import com.example.fisherman.ui.theme.textColors
+import com.example.fisherman.ui.theme.colorStyle
+
 
 @Composable
 fun MyMapsContent(
@@ -83,7 +84,7 @@ fun MyMapsContent(
                 )
                 Text(
                     text = map.waterName,
-                    color = MaterialTheme.textColors.secondaryText,
+                    color = MaterialTheme.colorStyle.secondaryText,
                     style = MaterialTheme.typography.titleSmall
                 )
             }

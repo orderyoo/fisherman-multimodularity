@@ -50,11 +50,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.domain.model.Scheme
 import com.example.fisherman.R
-import com.example.fisherman.ui.theme.textColors
+import com.example.fisherman.ui.theme.colorStyle
 
 @Composable
 fun MyUnloadMapsContent(
@@ -93,7 +92,7 @@ fun MyUnloadMapsContent(
                 )
                 Text(
                     text = map.waterName,
-                    color = MaterialTheme.textColors.secondaryText,
+                    color = MaterialTheme.colorStyle.secondaryText,
                     style = MaterialTheme.typography.titleSmall
                 )
             }
@@ -139,9 +138,9 @@ fun MyUnloadMapsContent(
                         IconButton(
                             colors = IconButtonColors(
                                 containerColor = MaterialTheme.colorScheme.error,
-                                contentColor = MaterialTheme.textColors.secondaryText,
+                                contentColor = MaterialTheme.colorStyle.secondaryText,
                                 disabledContainerColor = MaterialTheme.colorScheme.error,
-                                disabledContentColor = MaterialTheme.textColors.secondaryText
+                                disabledContentColor = MaterialTheme.colorStyle.secondaryText
                             ),
                             onClick = { showTwoButtons = false }) {
                                 Icon(Icons.Default.Close, tint = MaterialTheme.colorScheme.onError, contentDescription = "", modifier = Modifier)

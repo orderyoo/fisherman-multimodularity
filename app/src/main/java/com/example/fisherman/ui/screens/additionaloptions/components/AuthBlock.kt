@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -23,7 +22,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.fisherman.R
-import com.example.fisherman.ui.theme.textColors
+import com.example.fisherman.ui.common.components.ButtonType
+import com.example.fisherman.ui.common.components.PrimaryButton
+import com.example.fisherman.ui.theme.colorStyle
 
 @Preview(showBackground = true)
 @Composable
@@ -50,7 +51,7 @@ fun AuthBlock(
                     text = if (!isLoggedIn) stringResource(R.string.auth_block_title_no_auth )
                         else stringResource(R.string.auth_block_title_with_auth),
                     style = MaterialTheme.typography.headlineMedium,
-                    color = MaterialTheme.textColors.primaryText,
+                    color = MaterialTheme.colorStyle.primaryText,
                     fontWeight = FontWeight.ExtraBold
                 )
                 Text(
@@ -58,25 +59,17 @@ fun AuthBlock(
                         else "markovmaks895@gmail.com",
                     style = if(!isLoggedIn) MaterialTheme.typography.bodyMedium
                         else MaterialTheme.typography.titleMedium,
-                    color = if(!isLoggedIn) MaterialTheme.textColors.secondaryText
-                        else MaterialTheme.textColors.primaryText
+                    color = if(!isLoggedIn) MaterialTheme.colorStyle.secondaryText
+                        else MaterialTheme.colorStyle.primaryText
                 )
                 if(!isLoggedIn){
-                    Button(
-                        onClick = onLoginClick,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 16.dp),
-                        shape = MaterialTheme.shapes.small
-                    ) {
-                        Text(
-                            modifier = Modifier.padding(vertical = 8.dp),
-                            text = stringResource(R.string.auth_block_button_log_in),
-                            style = MaterialTheme.typography.headlineMedium,
-                            color = MaterialTheme.textColors.primaryText,
-                            fontWeight = FontWeight.ExtraBold
-                        )
-                    }
+                    PrimaryButton(
+                        text = stringResource(R.string.auth_block_button_log_in),
+                        textStyle = MaterialTheme.typography.headlineMedium,
+                        buttonModifier = Modifier.fillMaxWidth().padding(top = 16.dp),
+                        buttonType = ButtonType.Primary,
+                        onClick = onLoginClick
+                    )
                 } else {
                     Row(
                         modifier = Modifier
@@ -90,7 +83,7 @@ fun AuthBlock(
                             Text(
                                 text = stringResource(R.string.auth_block_button_log_out),
                                 style = MaterialTheme.typography.headlineMedium,
-                                color = MaterialTheme.textColors.primaryText
+                                color = MaterialTheme.colorStyle.primaryText
                             )
                         }
                         TextButton(
@@ -100,7 +93,7 @@ fun AuthBlock(
                             Text(
                                 text = stringResource(R.string.auth_block_button_delete_profile),
                                 style = MaterialTheme.typography.headlineMedium,
-                                color = MaterialTheme.colorScheme.error
+                                color = MaterialTheme.colorStyle.error
                             )
                         }
                     }
@@ -125,7 +118,7 @@ fun AuthBlock(
                         Icon(
                             painterResource(R.drawable.ic_check_mark),
                             contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary
+                            tint = MaterialTheme.colorStyle.primary
                         )
                     }
 
@@ -134,7 +127,7 @@ fun AuthBlock(
                     Text(
                         text = text,
                         style = MaterialTheme.typography.headlineSmall,
-                        color = MaterialTheme.textColors.primaryText
+                        color = MaterialTheme.colorStyle.primaryText
                     )
                 }
                 if(index != 2) Spacer(Modifier.padding(8.dp))

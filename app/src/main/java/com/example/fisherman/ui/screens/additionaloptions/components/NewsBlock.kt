@@ -8,9 +8,11 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import com.example.domain.model.News
+import com.example.fisherman.R
 import com.example.fisherman.ui.screens.allnews.components.NewsElement
+import com.example.fisherman.ui.theme.colorStyle
 
 @Composable
 fun NewsBlock(
@@ -23,7 +25,7 @@ fun NewsBlock(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Новости",
+                text = stringResource(R.string.news_block_title),
                 style = MaterialTheme.typography.headlineLarge,
                 modifier = Modifier.weight(1f)
             )
@@ -31,9 +33,9 @@ fun NewsBlock(
                 onClick = { onClickAllNews() }
             ) {
                 Text(
-                    text = "Все новости",
+                    text = stringResource(R.string.news_block_button_all_news),
                     style = MaterialTheme.typography.titleSmall,
-                    color = Color.Blue
+                    color = MaterialTheme.colorStyle.primary
                 )
             }
         }

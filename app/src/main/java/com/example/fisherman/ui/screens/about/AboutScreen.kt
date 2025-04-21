@@ -26,7 +26,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.fisherman.R
-import com.example.fisherman.ui.theme.textColors
+import com.example.fisherman.ui.theme.colorStyle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,7 +40,7 @@ fun AboutScreen(
                     Text(
                         text = "О приложении",
                         style = MaterialTheme.typography.headlineLarge,
-                        color = MaterialTheme.textColors.primaryText
+                        color = MaterialTheme.colorStyle.primaryText
                     )
                 },
                 navigationIcon = {
@@ -80,7 +80,7 @@ fun AboutScreen(
             Text(
                 text = "Карты глубин рек и водохранилищ \n для рыбалки в твоём смартфоне",
                 style = MaterialTheme.typography.headlineSmall,
-                color = MaterialTheme.textColors.primaryText
+                color = MaterialTheme.colorStyle.primaryText
             )
 
             Spacer(Modifier.padding(16.dp))
@@ -88,7 +88,7 @@ fun AboutScreen(
             Text(
                 text = "Версия 1.12.2347",
                 style = MaterialTheme.typography.headlineSmall,
-                color = MaterialTheme.textColors.secondaryText,
+                color = MaterialTheme.colorStyle.secondaryText,
                 textAlign = TextAlign.Center
             )
 
@@ -110,7 +110,7 @@ fun AboutScreen(
                     Text(
                         text = link.text,
                         style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.textColors.primaryText,
+                        color = MaterialTheme.colorStyle.primaryText,
                         modifier = Modifier.weight(1f)
                     )
                     Icon(
