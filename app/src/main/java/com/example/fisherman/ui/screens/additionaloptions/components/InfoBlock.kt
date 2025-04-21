@@ -14,9 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.fisherman.R
-import com.example.fisherman.ui.theme.textColors
+import com.example.fisherman.ui.theme.colorStyle
 
 @Composable
 fun InfoBlock(
@@ -26,9 +27,9 @@ fun InfoBlock(
     Column {
 
         Text(
-            text = "Информация",
+            text = stringResource(R.string.info_block_title),
             style = MaterialTheme.typography.headlineLarge,
-            color = MaterialTheme.textColors.primaryText
+            color = MaterialTheme.colorStyle.primaryText
         )
 
         Spacer(modifier = Modifier.padding(16.dp))
@@ -38,9 +39,9 @@ fun InfoBlock(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Справка",
+                text = stringResource(R.string.info_block_param_reference),
                 style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.textColors.primaryText,
+                color = MaterialTheme.colorStyle.primaryText,
                 modifier = Modifier
                     .padding(vertical = 8.dp)
                     .weight(1f)
@@ -55,9 +56,9 @@ fun InfoBlock(
         Spacer(modifier = Modifier.padding(16.dp))
 
         Text(
-            text = "О приложении",
+            text = stringResource(R.string.info_block_param_about),
             style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.textColors.primaryText,
+            color = MaterialTheme.colorStyle.primaryText,
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable { onClickAbout() }

@@ -23,7 +23,7 @@ import com.example.domain.model.Rating
 import com.example.domain.model.Scheme
 import com.example.fisherman.ui.screens.mymaps.components.MyMapsContent
 import com.example.fisherman.ui.screens.mymaps.components.MyUnloadMapsContent
-import com.example.fisherman.ui.theme.textColors
+import com.example.fisherman.ui.theme.colorStyle
 
 
 @Composable
@@ -48,7 +48,7 @@ fun MyMapScreen(
         item {
             Text(
                 text = "Установленные",
-                color = MaterialTheme.textColors.secondaryText,
+                color = MaterialTheme.colorStyle.secondaryText,
                 style = MaterialTheme.typography.labelSmall,
                 modifier = Modifier.padding(start = 16.dp, top = 16.dp)
             )
@@ -73,7 +73,7 @@ fun MyMapScreen(
         item {
             Text(
                 text = "Не установленные",
-                color = MaterialTheme.textColors.secondaryText,
+                color = MaterialTheme.colorStyle.secondaryText,
                 style = MaterialTheme.typography.labelSmall,
                 modifier = Modifier.padding(start = 16.dp, top = 16.dp)
             )

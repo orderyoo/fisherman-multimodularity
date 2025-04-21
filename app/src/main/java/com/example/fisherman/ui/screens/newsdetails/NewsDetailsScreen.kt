@@ -34,7 +34,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.example.fisherman.R
 import com.example.fisherman.ui.common.ErrorMessage
-import com.example.fisherman.ui.theme.textColors
+import com.example.fisherman.ui.theme.colorStyle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -98,7 +98,7 @@ fun NewsDetailScreen(
                     Text(
                         text = currentState.news.title,
                         style = MaterialTheme.typography.headlineLarge,
-                        color = MaterialTheme.textColors.primaryText
+                        color = MaterialTheme.colorStyle.primaryText
                     )
 
                     Spacer(Modifier.padding(8.dp))
@@ -106,7 +106,7 @@ fun NewsDetailScreen(
                     Text(
                         text = currentState.news.publicationDate,
                         style = MaterialTheme.typography.titleSmall,
-                        color = MaterialTheme.textColors.secondaryText,
+                        color = MaterialTheme.colorStyle.secondaryText,
                     )
 
                     Spacer(Modifier.padding(8.dp))
@@ -121,7 +121,7 @@ fun NewsDetailScreen(
                             )
                         },
                         style = MaterialTheme.typography.headlineSmall,
-                        color = MaterialTheme.textColors.primaryText
+                        color = MaterialTheme.colorStyle.primaryText
 
                     )
                 }

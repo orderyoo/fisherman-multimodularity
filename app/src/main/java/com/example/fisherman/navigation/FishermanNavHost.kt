@@ -1,7 +1,10 @@
 package com.example.fisherman.navigation
 
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -11,15 +14,16 @@ import com.example.fisherman.ui.screens.about.AboutScreen
 import com.example.fisherman.ui.screens.additionaloptions.AdditionalOptionsScreen
 import com.example.fisherman.ui.screens.allnews.AllNewsScreen
 import com.example.fisherman.ui.screens.mymaps.MyMapScreen
-import com.example.fisherman.ui.screens.mymaps.components.MyMapsContent
 import com.example.fisherman.ui.screens.newsdetails.NewsDetailScreen
 
 @Composable
 fun FishermanNavHost(
+    innerPadding: PaddingValues,
     navController: NavHostController,
     startDestination: String
 ){
     NavHost(
+        modifier = Modifier.padding(innerPadding),
         navController = navController,
         startDestination = startDestination
     ) {
