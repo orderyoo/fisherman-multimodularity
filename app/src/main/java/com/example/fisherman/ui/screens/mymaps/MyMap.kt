@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.domain.model.Prices
 import com.example.domain.model.Rating
 import com.example.domain.model.Scheme
@@ -28,7 +29,8 @@ import com.example.fisherman.ui.theme.colorStyle
 
 @Composable
 fun MyMapScreen(
-    viewModel: MyMapViewModel
+    viewModel: MyMapViewModel = hiltViewModel(),
+    onClickToAllRegion: () -> Unit
 ) {
 
     val state by viewModel.state.collectAsState()
@@ -89,7 +91,7 @@ fun MyMapScreen(
         ))}
         item {
             Button(
-                onClick = { /* TODO: Скачать карты глубин */ },
+                onClick = onClickToAllRegion,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp)

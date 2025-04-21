@@ -81,7 +81,7 @@ fun AdditionalOptionsScreen(
 
         item { Spacer(modifier = Modifier.padding(16.dp)) }
 
-        stickyHeader {
+        item {
             AuthBlock(
                 isLoggedIn = isLoggedIn,
                 onLoginClick = { isLoggedIn = !isLoggedIn },

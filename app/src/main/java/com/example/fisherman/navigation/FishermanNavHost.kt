@@ -13,6 +13,7 @@ import androidx.navigation.navArgument
 import com.example.fisherman.ui.screens.about.AboutScreen
 import com.example.fisherman.ui.screens.additionaloptions.AdditionalOptionsScreen
 import com.example.fisherman.ui.screens.allnews.AllNewsScreen
+import com.example.fisherman.ui.screens.allregions.AllRegionsScreen
 import com.example.fisherman.ui.screens.mymaps.MyMapScreen
 import com.example.fisherman.ui.screens.newsdetails.NewsDetailScreen
 
@@ -28,7 +29,7 @@ fun FishermanNavHost(
         startDestination = startDestination
     ) {
         composable(Routes.MapScreen.route) { }
-        composable(Routes.MyMapScreen.route) { MyMapScreen() }
+        composable(Routes.MyMapScreen.route) { MyMapScreen(onClickToAllRegion = { navController.navigate(Routes.AllRegions.route) }) }
         composable(Routes.PointScreen.route) { }
         composable(Routes.TrackScreen.route) { }
         composable(Routes.AdditionalOptionsScreen.route) { AdditionalOptionsScreen(navController) }
@@ -55,6 +56,15 @@ fun FishermanNavHost(
             val navigationActions = remember { NavigationActions(navController) }
             AboutScreen(
                 onBackClick = navigationActions::navigateBack
+            )
+        }
+
+        composable(
+            route = Routes.AllRegions.route
+        ) {
+            val navigationActions = remember { NavigationActions(navController) }
+            AllRegionsScreen(
+                onClickBack = navigationActions::navigateBack
             )
         }
     }

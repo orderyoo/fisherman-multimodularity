@@ -10,6 +10,7 @@ open class Routes(val route: String){
 
     data object AllNews: Routes("all_news")
     data object NewsDetails: Routes("news_details")
-
     data object About: Routes("about")
+
+    data object AllRegions: Routes("all_regions")
 }

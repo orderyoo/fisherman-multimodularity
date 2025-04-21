@@ -27,7 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.fisherman.ui.common.ErrorMessage
-import com.example.fisherman.ui.theme.textColors
+import com.example.fisherman.ui.theme.colorStyle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -50,7 +50,7 @@ fun AllRegionsScreen(
                     Text(
                         text = "Выберите регион",
                         style = MaterialTheme.typography.headlineLarge,
-                        color = MaterialTheme.textColors.primaryText
+                        color = MaterialTheme.colorStyle.primaryText
                     )
                 }
             )
