@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.fisherman.ui.screens.about.AboutScreen
 import com.example.fisherman.ui.screens.additionaloptions.AdditionalOptionsScreen
+import com.example.fisherman.ui.screens.allmaps.AllMapsScreen
 import com.example.fisherman.ui.screens.allnews.AllNewsScreen
 import com.example.fisherman.ui.screens.allregions.AllRegionsScreen
 import com.example.fisherman.ui.screens.mymaps.MyMapScreen
@@ -22,14 +23,20 @@ fun FishermanNavHost(
     innerPadding: PaddingValues,
     navController: NavHostController,
     startDestination: String
-){
+) {
     NavHost(
         modifier = Modifier.padding(innerPadding),
         navController = navController,
         startDestination = startDestination
     ) {
         composable(Routes.MapScreen.route) { }
-        composable(Routes.MyMapScreen.route) { MyMapScreen(onClickToAllRegion = { navController.navigate(Routes.AllRegions.route) }) }
+        composable(Routes.MyMapScreen.route) {
+            MyMapScreen(onClickToAllRegion = {
+                navController.navigate(
+                    Routes.AllRegions.route
+                )
+            })
+        }
         composable(Routes.PointScreen.route) { }
         composable(Routes.TrackScreen.route) { }
         composable(Routes.AdditionalOptionsScreen.route) { AdditionalOptionsScreen(navController) }
@@ -59,12 +66,21 @@ fun FishermanNavHost(
             )
         }
 
-        composable(
-            route = Routes.AllRegions.route
-        ) {
+        composable(Routes.AllRegions.route) {
             val navigationActions = remember { NavigationActions(navController) }
             AllRegionsScreen(
-                onClickBack = navigationActions::navigateBack
+                onClickBack = navigationActions::navigateBack,
+                onClickRegion = navigationActions::navigateToRegionsMaps
+            )
+        }
+
+        composable(
+            route = Routes.RegionMaps.route + "/{water_id}",
+            arguments = listOf(navArgument("water_id") { type = NavType.StringType})
+        ) { backStackEntry ->
+            AllMapsScreen(
+                water_id = backStackEntry.arguments?.getString("water_id")!!,
+                onBackClick = {navController.popBackStack()}
             )
         }
     }

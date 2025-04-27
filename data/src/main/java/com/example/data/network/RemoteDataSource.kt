@@ -15,8 +15,8 @@ class RemoteDataSource(private val apiService: ApiService) {
         return apiService.getNewsDetails(id)
     }
 
-    suspend fun getAllSchemesByRegion(token: String?): Response<List<Scheme>> {
-        return apiService.getAllSchemesByRegion(token)
+    suspend fun getAllSchemesByRegion(water_id : String, token: String?): Response<List<Scheme>> {
+        return apiService.getAllSchemesByRegion(water_id, token)
     }
 
     suspend fun getSchemeByName(name: String): Response<List<Scheme>> {

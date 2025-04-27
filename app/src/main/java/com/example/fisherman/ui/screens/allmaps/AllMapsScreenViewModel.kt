@@ -1,5 +1,6 @@
 package com.example.fisherman.ui.screens.allmaps
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.model.Scheme
@@ -15,7 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AllMapsScreenViewModel @Inject constructor(
-    private val provideGetAllSchemesByRegionCase: Lazy<GetAllSchemesByRegionCase>
+    private val provideGetAllSchemesByRegionCase: Lazy<GetAllSchemesByRegionCase>,
+    private val savedStateHandle: SavedStateHandle
 ): ViewModel(){
 
     sealed interface State{
@@ -28,12 +30,15 @@ class AllMapsScreenViewModel @Inject constructor(
     val state : StateFlow<State> = _state.asStateFlow()
 
     init {
-        loadAllMaps()
+        val water_id = savedStateHandle.get<String>("water_id")
+            ?: throw IllegalArgumentException("water_id is required")
+        loadAllMaps(water_id)
     }
 
-    private fun loadAllMaps(){
+    fun loadAllMaps(water_id : String){
+        println(water_id)
         viewModelScope.launch {
-            provideGetAllSchemesByRegionCase.get().invoke(token = null).onSuccess { maps ->
+            provideGetAllSchemesByRegionCase.get().invoke(water_id, token = null).onSuccess { maps ->
                 _state.value = State.Success(maps)
             }.onFailure { exception ->
                 _state.value = State.Error(exception.message?: "Unknown error occurred")

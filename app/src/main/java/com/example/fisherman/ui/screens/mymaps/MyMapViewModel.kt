@@ -26,9 +26,9 @@ class MyMapViewModel @Inject constructor(
     val state: StateFlow<State> = _state.asStateFlow()
 
     init {
-        loadSchemas("1")
+        //loadSchemas("1")
     }
-
+/*
     private fun loadSchemas(token: String){
         viewModelScope.launch {
             provideGetAllSchemesByRegion.get().invoke(token).onSuccess{ schemes ->
@@ -38,4 +38,5 @@ class MyMapViewModel @Inject constructor(
             }
         }
     }
+ */
 }

@@ -10,5 +10,5 @@ data class Region(
     @SerialName("name")
     val name: String,
     @SerialName("schemes")
-    val schemes: String
+    val schemes: Int
 )

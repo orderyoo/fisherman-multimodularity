@@ -1,5 +1,6 @@
 package com.example.fisherman.ui.screens.allregions
 
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,7 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -33,7 +34,8 @@ import com.example.fisherman.ui.theme.colorStyle
 @Composable
 fun AllRegionsScreen(
     viewModel: AllRegionsScreenViewModel = hiltViewModel(),
-    onClickBack: () -> Unit
+    onClickBack: () -> Unit,
+    onClickRegion: (String) -> Unit
 ) {
 
     val state by viewModel.state.collectAsState()
@@ -43,7 +45,7 @@ fun AllRegionsScreen(
             TopAppBar(
                 navigationIcon = {
                     IconButton(onClick = onClickBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Назад")
                     }
                 },
                 title = {
@@ -60,7 +62,8 @@ fun AllRegionsScreen(
             is AllRegionsScreenViewModel.State.Loading -> {
                 Box(
                     modifier = Modifier
-                        .fillMaxSize().padding(innerPadding),
+                        .fillMaxSize()
+                        .padding(innerPadding),
                     contentAlignment = Alignment.Center
                 ) {
                     CircularProgressIndicator()
@@ -69,17 +72,19 @@ fun AllRegionsScreen(
 
             is AllRegionsScreenViewModel.State.Success -> {
                 LazyColumn (
-                    modifier = Modifier.padding(innerPadding),
-                    contentPadding = PaddingValues(16.dp)
+                    modifier = Modifier.padding(innerPadding)
                 ){
                     itemsIndexed(currentState.regions){ _, region ->
-                        Column(modifier = Modifier.fillMaxWidth().clickable { /*todo*/ }) {
+                        Column(modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onClickRegion(region.id)
+                            }) {
                             Text(
                                 text = region.name,
                                 style = MaterialTheme.typography.titleMedium
                             )
                             Text(
-                                text = "$region.schemes схем",
+                                text = "${region.schemes} схем",
                                 style = MaterialTheme.typography.titleSmall
                             )
                         }

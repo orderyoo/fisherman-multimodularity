@@ -11,4 +11,8 @@ class NavigationActions(private val navController: NavHostController) {
     fun navigateBack() {
         navController.popBackStack()
     }
+
+    fun navigateToRegionsMaps(water_id : String) {
+        navController.navigate("${Routes.RegionMaps.route}/$water_id")
+    }
 }

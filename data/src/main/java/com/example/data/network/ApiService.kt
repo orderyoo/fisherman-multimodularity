@@ -24,6 +24,7 @@ interface ApiService {
 
     @GET("/api/water/{water_id}/schemes")
     suspend fun getAllSchemesByRegion(
+        @Path("water_id") water_id: String,
         @Query("Authorization") token: String?
     ): Response<List<Scheme>>
 

@@ -11,8 +11,8 @@ class SchemesRepositoryImpl(private val remoteDataSource: RemoteDataSource): Sch
         return safeApiCall { remoteDataSource.getSchemeByName(name) }
     }
 
-    override suspend fun getAllSchemeByRegion(token: String?): Result<List<Scheme>> {
-        return safeApiCall { remoteDataSource.getAllSchemesByRegion(token) }
+    override suspend fun getAllSchemeByRegion(water_id: String, token: String?): Result<List<Scheme>> {
+        return safeApiCall { remoteDataSource.getAllSchemesByRegion(water_id, token) }
     }
 
     override suspend fun getAllRegion(): Result<List<Region>> {

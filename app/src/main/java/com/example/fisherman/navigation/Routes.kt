@@ -13,4 +13,5 @@ open class Routes(val route: String){
     data object About: Routes("about")
 
     data object AllRegions: Routes("all_regions")
+    data object RegionMaps: Routes("region_maps")
 }
