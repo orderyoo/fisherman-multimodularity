@@ -77,8 +77,9 @@ fun AllRegionsScreen(
                     itemsIndexed(currentState.regions){ _, region ->
                         Column(modifier = Modifier
                             .fillMaxWidth()
-                            .clickable { onClickRegion(region.id)
-                            }) {
+                            .clickable { onClickRegion(region.id) }
+                            .padding(10.dp)
+                        ) {
                             Text(
                                 text = region.name,
                                 style = MaterialTheme.typography.titleMedium

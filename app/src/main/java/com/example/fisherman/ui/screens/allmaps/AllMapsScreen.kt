@@ -6,16 +6,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,10 +24,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.domain.model.Scheme
@@ -38,7 +32,6 @@ import com.example.fisherman.R
 import com.example.fisherman.ui.common.ErrorMessage
 import com.example.fisherman.ui.common.components.ButtonType
 import com.example.fisherman.ui.common.components.PrimaryButton
-import com.example.fisherman.ui.theme.colorStyle
 
 @Composable
 fun AllMapsScreen(
@@ -122,35 +115,6 @@ fun MapList(scheme: Scheme) {
                     purchased = true
                 }
             }
-        )
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun ProgressButton() {
-    var progress by remember { mutableStateOf(0.3f) }
-//    val scope = rememberCoroutineScope()
-//    scope.launch {
-//        while (progress < 1f) {
-//            progress += 0.1f
-//            delay(1000L)
-//        }
-//    }
-
-    Box(modifier = Modifier
-        .height(24.dp)
-        .fillMaxWidth()) {
-        LinearProgressIndicator(
-            progress = { progress },
-            color = MaterialTheme.colorStyle.onSecondary,
-            trackColor = MaterialTheme.colorStyle.secondary,
-            modifier = Modifier
-                .height(24.dp)
-                .fillMaxWidth(),
-            strokeCap = StrokeCap.Butt,
-            gapSize = 0.dp
         )
     }
 }
