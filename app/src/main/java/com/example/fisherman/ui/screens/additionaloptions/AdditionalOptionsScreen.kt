@@ -23,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -31,12 +32,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.fisherman.R
 import com.example.fisherman.navigation.Routes
+import com.example.fisherman.ui.common.ErrorMessage
 import com.example.fisherman.ui.screens.additionaloptions.components.AuthBlock
 import com.example.fisherman.ui.screens.additionaloptions.components.InfoBlock
 import com.example.fisherman.ui.screens.additionaloptions.components.NewsBlock
 import com.example.fisherman.ui.screens.additionaloptions.components.SettingsBlock
+import com.example.fisherman.ui.screens.allregions.AllRegionsScreenViewModel
 
-@OptIn(ExperimentalFoundationApi::class)
 @Preview(showSystemUi = true)
 @Composable
 fun AdditionalOptionsScreen(
@@ -71,7 +73,7 @@ fun AdditionalOptionsScreen(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
-                    text = "Добро пожаловать в профиль Dap Drift!",
+                    text = stringResource(R.string.opt_welcome),
                     style = MaterialTheme.typography.headlineLarge,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(horizontal = 28.dp)
@@ -105,9 +107,10 @@ fun AdditionalOptionsScreen(
                     )
                 }
                 is AdditionalOptionsScreenViewModel.State.Error -> {
-                    Box {
-                        Text("НИЧЕГО НЕ ЗАГРУЗИЛОСЬ")
-                    }
+                    ErrorMessage(
+                        onRepeat = { },
+                        message = currentState.message
+                    )
                 }
             }
         }

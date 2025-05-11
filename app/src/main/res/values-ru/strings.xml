@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dap Drift</string>
+    <string name="app_version">Версия 1.12.2347</string>
+
+    <!-- Auth block -->
     <string name="auth_block_title_no_auth">Войдите в Dap Drift!</string>
     <string name="auth_block_subtext_no_auth">и используйте все возможности приложения</string>
     <string name="auth_block_button_log_in">Войти</string>
@@ -10,12 +13,62 @@
     <string name="auth_block_button_delete_profile">Удалить профиль</string>
     <string name="auth_block_advantage_1">все приобретённые карты глубины сохраняются в вашем аккаунте навсегда</string>
     <string name="auth_block_advantage_2">купленные карты можно скачивать на разных устройствах с одним аккаунтом</string>
+
+    <!-- News block -->
     <string name="news_block_title">Новости</string>
     <string name="news_block_button_all_news">Все новости</string>
+
+    <!-- Settings block -->
     <string name="settings_block_title">Настройки</string>
     <string name="settings_block_param_not_turn">Не выключайте экран</string>
     <string name="settings_block_param_compas_type">Тип компаса</string>
+
+    <!-- Info block -->
     <string name="info_block_title">Информация</string>
     <string name="info_block_param_reference">Справка</string>
     <string name="info_block_param_about">О приложении</string>
+
+    <!-- About block -->
+    <string name="app_description">Карты глубин рек и водохранилищ для рыбалки в твоём смартфоне</string>
+    <string name="about_rate">Оценить приложение в StoreName</string>
+    <string name="about_our_site">Наш сайт</string>
+    <string name="about_vkgroup">Группа ВКонтакте</string>
+    <string name="about_telegram">Канал в Telegram</string>
+    <string name="about_policy">Политика конфиденциальности</string>
+    <string name="about_agreement">Пользовательское соглашение</string>
+    <string name="opt_welcome">Добро пожаловать в профиль Dap Drift!</string>
+
+    <!-- AllMaps block -->
+    <string name="map_version_and_size">Версия %1\$s — Размер %2\$s</string>
+    <string name="map_buy">Купить за %1\\$s</string>
+    <string name="map_download">Загрузить</string>
+
+    <!-- AllRegions block -->
+    <string name="region_choose">Выберите регион</string>
+    <string name="region_schemes">%1\\$s schemes</string>
+
+    <!-- MyMap block -->
+    <string name="mymap_title">Мои карты</string>
+    <string name="mymap_installed">Установленные</string>
+    <string name="mymap_not_installed">Не установленные</string>
+    <string name="mymap_button">Скачать еще карты глубин</string>
+    <string name="mymap_transparency">Прозрачность</string>
+    <string name="button_delete">Удалить</string>
+    <string name="button_uploading">Загрузка</string>
+
+    <!-- MyMap Example block -->
+    <string name="mymap_ex1_1">Карьер Золотой</string>
+    <string name="mymap_ex1_2">Калининградская область</string>
+    <string name="mymap_ex2_1">Кристалл - Тимитярка</string>
+    <string name="mymap_ex2_2">Пензенская область. Сурское вдхр.</string>
+
+    <!-- Error block -->
+    <string name="error_message">Ошибка загрузки</string>
+
+    <!-- BottomBar block -->
+    <string name="bar_map">Карта</string>
+    <string name="bar_points">Точки</string>
+    <string name="bar_tracks">Треки</string>
+    <string name="bar_more">Ещё</string>
+
 </resources>

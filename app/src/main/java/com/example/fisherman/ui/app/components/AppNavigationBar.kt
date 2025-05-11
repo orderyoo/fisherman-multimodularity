@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.fisherman.R
 import com.example.fisherman.navigation.Routes
@@ -28,11 +29,11 @@ fun AppNavigationBar(
         contentColor = contentColorFor(backgroundColor = MaterialTheme.colorScheme.surface)
     ) {
         val navigationItems = listOf(
-            AppNavigationBarElement("Карта", painterResource(R.drawable.ic_appbar_map), Routes.MapScreen.route),
-            AppNavigationBarElement("Мои карты", painterResource(R.drawable.ic_appbar_my_map), Routes.MyMapScreen.route),
-            AppNavigationBarElement("Точки", painterResource(R.drawable.ic_appbar_point), Routes.PointScreen.route),
-            AppNavigationBarElement("Треки", painterResource(R.drawable.ic_appbar_tracks), Routes.TrackScreen.route),
-            AppNavigationBarElement("Ещё", painterResource(R.drawable.ic_appbar_additional_options), Routes.AdditionalOptionsScreen.route),
+            AppNavigationBarElement(stringResource(R.string.bar_map), painterResource(R.drawable.ic_appbar_map), Routes.MapScreen.route),
+            AppNavigationBarElement(stringResource(R.string.mymap_title), painterResource(R.drawable.ic_appbar_my_map), Routes.MyMapScreen.route),
+            AppNavigationBarElement(stringResource(R.string.bar_points), painterResource(R.drawable.ic_appbar_point), Routes.PointScreen.route),
+            AppNavigationBarElement(stringResource(R.string.bar_tracks), painterResource(R.drawable.ic_appbar_tracks), Routes.TrackScreen.route),
+            AppNavigationBarElement(stringResource(R.string.bar_more), painterResource(R.drawable.ic_appbar_additional_options), Routes.AdditionalOptionsScreen.route),
         )
         navigationItems.forEach { item ->
             val isSelected = currentRoute == item.route

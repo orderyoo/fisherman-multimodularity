@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Dap Drift</string>
+    <string name="app_version">Version 1.12.2347</string>
 
     <!-- Auth block -->
     <string name="auth_block_title_no_auth">Enter Dap Drift!</string>
@@ -27,4 +28,48 @@
     <string name="info_block_title">Information</string>
     <string name="info_block_param_reference">Reference</string>
     <string name="info_block_param_about">About</string>
+
+    <!-- About block -->
+    <string name="app_description">Maps of the depths of rivers and reservoirs  for fishing on your smartphone</string>
+    <string name="about_rate">Rate app in StoreName </string>
+    <string name="about_our_site">Our site</string>
+    <string name="about_vkgroup">VK group</string>
+    <string name="about_telegram">Telegram channel</string>
+    <string name="about_policy">Privacy policy</string>
+    <string name="about_agreement">User agreement</string>
+    <string name="opt_welcome">Welcome to the Dap Drift profile!</string>
+
+    <!-- AllMaps block -->
+    <string name="map_version_and_size">Version %1\\$s — Size %2\\$s</string>
+    <string name="map_buy">Buy for %1\\$s</string>
+    <string name="map_download">Download</string>
+
+    <!-- AllRegions block -->
+    <string name="region_choose">Choose region</string>
+    <string name="region_schemes">%1\\$s schemes</string>
+
+    <!-- MyMap block -->
+    <string name="mymap_title">My maps</string>
+    <string name="mymap_installed">Installed</string>
+    <string name="mymap_not_installed">Not installed</string>
+    <string name="mymap_button">Download more depth maps</string>
+    <string name="mymap_transparency">Transparency</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_uploading">Uploading</string>
+
+    <!-- MyMap Example block -->
+    <string name="mymap_ex1_1">The Golden Quarry</string>
+    <string name="mymap_ex1_2">Kaliningrad region</string>
+    <string name="mymap_ex2_1">Kristall - Timityarka</string>
+    <string name="mymap_ex2_2">Penza region. Surskoye reservoir</string>
+
+    <!-- Error block -->
+    <string name="error_message">Unexpected error</string>
+
+    <!-- BottomBar block -->
+    <string name="bar_map">Map</string>
+    <string name="bar_points">Points</string>
+    <string name="bar_tracks">Tracks</string>
+    <string name="bar_more">More</string>
+
 </resources>

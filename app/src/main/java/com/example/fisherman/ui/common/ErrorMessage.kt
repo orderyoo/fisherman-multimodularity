@@ -9,6 +9,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.example.fisherman.R
+
 
 @Composable
 fun ErrorMessage(
@@ -21,7 +24,7 @@ fun ErrorMessage(
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Ошибка загрузки", color = MaterialTheme.colorScheme.error)
+            Text(stringResource(R.string.error_message), color = MaterialTheme.colorScheme.error)
             Text(message)
             println(message)
             Button(

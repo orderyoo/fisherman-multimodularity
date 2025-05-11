@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package com.example.fisherman.ui.screens.mymaps.components
 
 import androidx.compose.animation.AnimatedVisibility
@@ -18,10 +16,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.outlined.Visibility
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -40,12 +36,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.domain.model.Scheme
 import com.example.fisherman.R
 import com.example.fisherman.ui.theme.colorStyle
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyMapsContent(
     map: Scheme,
@@ -123,7 +121,7 @@ fun MyMapsContent(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Прозрачность",
+                        text = stringResource(R.string.mymap_transparency),
                         style = MaterialTheme.typography.titleMedium
                     )
                     Spacer(modifier = Modifier.width(16.dp))
@@ -158,7 +156,7 @@ fun MyMapsContent(
                         .padding(16.dp)
                 ) {
                     Text(
-                        text = "Удалить",
+                        text = stringResource(R.string.button_delete),
                         style = MaterialTheme.typography.titleLarge
                     )
                 }

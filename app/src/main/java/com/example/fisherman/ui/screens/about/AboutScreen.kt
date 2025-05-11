@@ -23,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.fisherman.R
@@ -38,7 +39,7 @@ fun AboutScreen(
             TopAppBar(
                 title = {
                     Text(
-                        text = "О приложении",
+                        text = stringResource(R.string.info_block_param_about),
                         style = MaterialTheme.typography.headlineLarge,
                         color = MaterialTheme.colorStyle.primaryText
                     )
@@ -78,7 +79,7 @@ fun AboutScreen(
             Spacer(Modifier.padding(16.dp))
 
             Text(
-                text = "Карты глубин рек и водохранилищ \n для рыбалки в твоём смартфоне",
+                text = stringResource(R.string.app_description),
                 style = MaterialTheme.typography.headlineSmall,
                 color = MaterialTheme.colorStyle.primaryText
             )
@@ -86,7 +87,7 @@ fun AboutScreen(
             Spacer(Modifier.padding(16.dp))
 
             Text(
-                text = "Версия 1.12.2347",
+                text = stringResource(R.string.app_version),
                 style = MaterialTheme.typography.headlineSmall,
                 color = MaterialTheme.colorStyle.secondaryText,
                 textAlign = TextAlign.Center
@@ -95,12 +96,12 @@ fun AboutScreen(
             Spacer(Modifier.padding(16.dp))
 
             val links = listOf(
-                Link("Оценить приложение в <StorName>",null),
-                Link("Наш сайт",null),
-                Link("Группа ВКонтакте",null),
-                Link("Канал в Telegram",null),
-                Link("Политика конфиденциальности",null),
-                Link("Пользовательское соглашение",null),
+                Link(stringResource(R.string.about_rate),null),
+                Link(stringResource(R.string.about_our_site),null),
+                Link(stringResource(R.string.about_vkgroup),null),
+                Link(stringResource(R.string.about_telegram),null),
+                Link(stringResource(R.string.about_policy),null),
+                Link(stringResource(R.string.about_agreement),null),
             )
 
             links.forEachIndexed { index, link ->

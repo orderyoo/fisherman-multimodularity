@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.domain.model.Scheme
@@ -36,8 +37,7 @@ import com.example.fisherman.ui.common.components.PrimaryButton
 @Composable
 fun AllMapsScreen(
     water_id: String,
-    viewModel: AllMapsScreenViewModel = hiltViewModel(),
-    onBackClick: () -> Unit
+    viewModel: AllMapsScreenViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
 
@@ -76,7 +76,6 @@ fun AllMapsScreen(
 @Composable
 fun MapList(scheme: Scheme) {
     var purchased by remember { mutableStateOf(scheme.free) }
-    //var showTwoButtons by remember { mutableStateOf(false) }
     Column {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -84,7 +83,7 @@ fun MapList(scheme: Scheme) {
         ) {
             Column {
                 Text(
-                    "Версия ${scheme.fileVersion} - Размер ${scheme.fileSize}",
+                    stringResource(R.string.map_version_and_size, scheme.fileVersion, scheme.fileSize),
                     style = MaterialTheme.typography.titleSmall
                 )
                 Text(scheme.name, style = MaterialTheme.typography.headlineSmall)
@@ -101,9 +100,9 @@ fun MapList(scheme: Scheme) {
         PrimaryButton(
             text =
                 if (!purchased) {
-                    "Купить за ${scheme.prices.google}"
+                    stringResource(R.string.map_buy, scheme.prices.google)
                 } else {
-                    "Загрузить"
+                    stringResource(R.string.map_download)
                 },
             buttonType = if (!purchased) {
                 ButtonType.Primary

@@ -79,8 +79,7 @@ fun FishermanNavHost(
             arguments = listOf(navArgument("water_id") { type = NavType.StringType})
         ) { backStackEntry ->
             AllMapsScreen(
-                water_id = backStackEntry.arguments?.getString("water_id")!!,
-                onBackClick = {navController.popBackStack()}
+                water_id = backStackEntry.arguments?.getString("water_id")!!
             )
         }
     }

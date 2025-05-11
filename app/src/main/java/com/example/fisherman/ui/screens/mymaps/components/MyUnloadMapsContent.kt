@@ -41,6 +41,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.domain.model.Scheme
 import com.example.fisherman.R
@@ -139,7 +140,7 @@ fun MyUnloadMapsContent(
                                 strokeCap = StrokeCap.Square,
                                 gapSize = 0.dp
                             )
-                            Text(text = "Загрузка", style = MaterialTheme.typography.titleLarge)
+                            Text(text = stringResource(R.string.button_uploading), style = MaterialTheme.typography.titleLarge)
                         }
 
                         Box(
@@ -172,7 +173,7 @@ fun MyUnloadMapsContent(
                             progress = 0.0f
                         }
                     ) {
-                        Text("Загрузить", style = MaterialTheme.typography.titleLarge)
+                        Text(stringResource(R.string.map_download), style = MaterialTheme.typography.titleLarge)
                     }
                 }
             }
