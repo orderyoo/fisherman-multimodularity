@@ -18,6 +18,8 @@ import com.example.domain.model.Prices
 import com.example.domain.model.Rating
 import com.example.domain.model.Scheme
 import com.example.fisherman.R
+import com.example.fisherman.ui.common.components.ButtonType
+import com.example.fisherman.ui.common.components.PrimaryButton
 import com.example.fisherman.ui.screens.mymaps.components.MyMapsContent
 import com.example.fisherman.ui.screens.mymaps.components.MyUnloadMapsContent
 import com.example.fisherman.ui.theme.colorStyle
@@ -60,7 +62,15 @@ fun MyMapScreen(
         item {
             MyMapsContent(
                 Scheme(
-                    "1", stringResource(R.string.mymap_ex1_1), "pr", Rating(), null, null, null, 1, true,
+                    "1",
+                    stringResource(R.string.mymap_ex1_1),
+                    "pr",
+                    Rating(),
+                    null,
+                    null,
+                    null,
+                    1,
+                    true,
                     purchased = true,
                     billingPurchased = true,
                     productId = null,
@@ -87,7 +97,15 @@ fun MyMapScreen(
         item {
             MyUnloadMapsContent(
                 Scheme(
-                    "1", stringResource(R.string.mymap_ex2_1), "pr", Rating(), null, null, null, 1, true,
+                    "1",
+                    stringResource(R.string.mymap_ex2_1),
+                    "pr",
+                    Rating(),
+                    null,
+                    null,
+                    null,
+                    1,
+                    true,
                     purchased = true,
                     billingPurchased = true,
                     productId = null,
@@ -99,17 +117,15 @@ fun MyMapScreen(
             )
         }
         item {
-            Button(
-                onClick = onClickToAllRegion,
-                modifier = Modifier
+            PrimaryButton(
+                text = stringResource(R.string.mymap_button),
+                textStyle = MaterialTheme.typography.headlineMedium,
+                buttonType = ButtonType.Primary,
+                buttonModifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
-            ) {
-                Text(
-                    text = stringResource(R.string.mymap_button),
-                    style = MaterialTheme.typography.headlineMedium
-                )
-            }
+                    .padding(16.dp),
+                onClick = onClickToAllRegion
+            )
         }
     }
 }

@@ -17,7 +17,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.outlined.Visibility
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -40,6 +39,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.domain.model.Scheme
 import com.example.fisherman.R
+import com.example.fisherman.ui.common.components.ButtonType
+import com.example.fisherman.ui.common.components.PrimaryButton
 import com.example.fisherman.ui.theme.colorStyle
 
 
@@ -96,6 +97,7 @@ fun MyMapsContent(
                     tint = MaterialTheme.colorScheme.error
                 )
             }
+
             IconButton(onClick = {
                 isExpanded = !isExpanded
             }) {
@@ -149,18 +151,16 @@ fun MyMapsContent(
                         style = MaterialTheme.typography.titleMedium
                     )
                 }
-                Button(
-                    onClick = { /* TODO: Удалить карту */ },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp)
-                ) {
-                    Text(
-                        text = stringResource(R.string.button_delete),
-                        style = MaterialTheme.typography.titleLarge
-                    )
-                }
 
+                PrimaryButton(
+                    text = stringResource(R.string.button_delete),
+                    textStyle = MaterialTheme.typography.titleLarge,
+                    buttonType = ButtonType.Primary,
+                    buttonModifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    onClick = { /* TODO: Удалить карту */ }
+                )
             }
         }
     }

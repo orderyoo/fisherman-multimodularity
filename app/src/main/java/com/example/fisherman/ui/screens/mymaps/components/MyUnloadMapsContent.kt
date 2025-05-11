@@ -24,7 +24,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.IconButtonColors
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -45,6 +44,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.domain.model.Scheme
 import com.example.fisherman.R
+import com.example.fisherman.ui.common.components.ButtonType
+import com.example.fisherman.ui.common.components.PrimaryButton
 import com.example.fisherman.ui.theme.colorStyle
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -140,7 +141,10 @@ fun MyUnloadMapsContent(
                                 strokeCap = StrokeCap.Square,
                                 gapSize = 0.dp
                             )
-                            Text(text = stringResource(R.string.button_uploading), style = MaterialTheme.typography.titleLarge)
+                            Text(
+                                text = stringResource(R.string.button_uploading),
+                                style = MaterialTheme.typography.titleLarge
+                            )
                         }
 
                         Box(
@@ -162,19 +166,16 @@ fun MyUnloadMapsContent(
                         }
                     }
                 } else {
-                    Button(
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = RoundedCornerShape(5.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.secondary
-                        ),
+                    PrimaryButton(
+                        text = stringResource(R.string.map_download),
+                        textStyle = MaterialTheme.typography.titleLarge,
+                        buttonType = ButtonType.Secondary,
+                        buttonModifier = Modifier.fillMaxWidth(),
                         onClick = {
                             showTwoButtons = true
                             progress = 0.0f
                         }
-                    ) {
-                        Text(stringResource(R.string.map_download), style = MaterialTheme.typography.titleLarge)
-                    }
+                    )
                 }
             }
         }
